@@ -1,5 +1,6 @@
 import React from 'react';
 import imageCompression from 'browser-image-compression';
+import "./compressor.css"
 
 export default class Compression extends React.Component {
   state = {
@@ -59,23 +60,26 @@ export default class Compression extends React.Component {
     return (
       <div>
         {this.state.uploadImage ? (
-          <img alt="asd" srcSet={this.state.originalLink} />
+          <img alt="" srcSet={this.state.originalLink} />
         ) : (
-          <img alt="asdsa" src="https://navparivartan.in/wp-content/uploads/2018/11/placeholder.png" />
+          <img alt="" src="https://techblog.sdstudio.top/wp-content/uploads/2021/09/ba11d056cec27254d89b310745e4071b-1.png" />
         )}
         <div>
-          <input type="file" accept="image/*" onChange={event => this.handleClick(event)} />
+          <label htmlFor="file-upload" className="custom-file-upload">
+            Upload
+          </label>
+          <input id="file-upload" type="file" accept="image/*" onChange={event => this.handleClick(event)} />
         </div>
         <div>
           <br />
           {this.state.outputFileName ? (
-            <button type="button" onClick={event => this.click(event)}>Cliasdadck</button>
+            <button className="custom-file-button" type="button" onClick={event => this.click(event)}>Kompresuj</button>
           ) : (
             <></>
           )}
         </div>
         <div>
-          <img alt="ad" srcSet={this.state.compressedLink} />
+          <img className='image' alt="" srcSet={this.state.compressedLink} />
           {this.state.clicked ? (
             <div>
               <a href={this.state.compressedLink} download={this.state.outputFileName}>Download</a>
